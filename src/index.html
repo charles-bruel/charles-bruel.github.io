@@ -4,40 +4,314 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Nunito&display=swap" rel="stylesheet">
+
+    
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            margin: 0px;
+        }
+
+        p {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        section {
+            position: relative;
+            min-height: 400px;
+            padding: 100px 10vw;
+        }
+
+        .cont {
+            display: grid;
+            gap: 20px;
+            align-items: center;
+            grid-template-areas: 
+            "content picture1"
+            "content picture2"
+            "content picture3"
+            "picture7 picture4"
+            "picture8 picture5"
+            "picture9 picture6";
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        div {
+            padding: 25px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 3em;
+        }
+
+        h3 {
+            font-size: 2em;
+        }
+
+        h4 {
+            font-size: 1.5em;
+        }
+
+        #title {
+            background-color: #001220;
+            min-height: 0px;
+            padding: 25px 7.5vw;
+            color: white;
+            font-size: 5em;
+        }
+
+        #prog {
+            background-color: #B0C4DE;
+        }
+
+        #eng {
+            background-color: #DC143C;
+        }
+
+        .spacer {
+            aspect-ratio: 9/1;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            padding: 0px;
+        }
+
+        .wave1 {
+            background-image: url(./../media/wave1.svg);
+        }
+
+        .wave2 {
+            background-image: url(./../media/wave2.svg);
+        }
+
+        .break {
+            flex-basis: 100%;
+            height: 0;
+        }
+    </style>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 35vw;
+        }
+
+        .img-comp-container {
+            position: relative;
+            padding: 0px;
+            width: 35vw;
+            height: calc(35vw * 9/16);
+        }
+
+        .img-comp-img {
+            position: absolute;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        .img-comp-img img {
+            display: block;
+        }
+
+        .img-comp-slider {
+            position: absolute;
+            z-index: 9;
+            cursor: ew-resize;
+            /*set the appearance of the slider:*/
+            width: 40px;
+            height: 40px;
+            background-color: #2196F3;
+            opacity: 0.7;
+            border-radius: 50%;
+            padding: 0px;
+        }
+    </style>
 </head>
 <body>
-    <section>
-        <h1>Header</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil eaque fuga harum optio molestias voluptatem ducimus iusto dolorem magni, recusandae, vel alias excepturi? Magni molestias labore dolores illum! Ratione, consectetur.</p>
+    <section id="title">
+        <h1>Charles Bruel</h1>
     </section>
-    <section>
-        <h1>Header</h1>
+    <div class="spacer wave1"></div>
+    <section id="prog">
+        <h2>Programming Portfolio</h2>
+        <div class="cont">
+        <div class="content">
+            <h3>Avalanche Mod</h3>
+            <h4>Introduction</h4>
+            <p>
+                Snowtopia is a ski resort tycoon game I got almost two years ago. Since then, I have become the most prolific modder of the game. My mod loader, avalanche,
+                contains many tweaks to the game in addition to the ability for third parties to add custom content in the form of maps and lifts. Snowtopia is written in C#
+                using the unity engine, allowing relatively simple modding with a decompiler such as DNSpy.<br><br>
+                For full disclosure, I develop avalanche along with two other people, however they are not heavily involved in the code. One maintains the installer and <a href="https://snowtopiamodding.com/">
+                map directory website</a>, and the other helps balance features in the mod.
+            </p>
+            <h4>Trees</h4>
+            <p>
+                The most immediately noticable difference with my mod is the increase in tree density. Snowtopia uses an instanced rendering system to render trees and other
+                objects, however the system is limited. By default, it has a max instance count of only 40k, but I have optimized it and increased it to 1 million. The primary
+                peroformance gain was frustum culling. Since I did not have access to the shader source, I had to insert an shader extra stage written in HLSL to implement
+                frustum culling.<br><br>
+                Another challenge was the brush tool. In the unmodified game, trees cannot be added and can only be removed by building through them. This allows a very simple
+                data structure to be used, because removed trees aren't even fully removed, just hidden. I implemented a custom data structure to be able to quickly add, remove,
+                and find trees scalable up to millions of trees.
+            </p>
+            <h4>Lifts</h4>
+            <p>
+                Custom lifts are the most complex feature I've added. The default lifts are passable, but I have managed to improve on their asethetics significantly. Custom
+                lifts are loaded with Unity's asset bundle system, and can contain script data to define behaviour on creation. The default static model towers have been repalced
+                with high detail models that contain accurate sheaves. The towers adapt to the terrain with a 3d tower placement algorithm, allowing variable heights on towers.
+                When the towers interact with ski runs, I've added padding to the towers. I've added sag to the cables that the cars run, realisticly modelled with caternery 
+                curves. The cars enter the stations instead of immediately turning around, and for the detachable lifts, the vehicles slow down in the station like they would
+                in real life.
+            </p>
+            <h4>Maps</h4>
+            <p>
+                I've added support to play on custom maps, easily created with a heightmap. The map size has been unlocked and maps that are 25 times the size of the unmodded maps are
+                possible, although unideal for gameplay.
+            </p>
+            <h4>Other Features</h4>
+            <p>
+                The mod also contains innumerable other minor features, mostly quality of life features, that I do not have time to list here.
+            </p>
+        </div>
+        <div>
+            <div class="img-comp-container">
+                <div class="img-comp-img">
+                    <img src="./../media/ps2o.PNG">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="./../media/ps2m.PNG">
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="./../media/ps7.PNG">
+        </div>
+        <div>
+            <div class="img-comp-container">
+                <div class="img-comp-img">
+                    <img src="./../media/ps1o.PNG">
+                </div>
+                <div class="img-comp-img img-comp-overlay">
+                    <img src="./../media/ps1m.PNG">
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="./../media/ps3.PNG">
+        </div>
+        <div>
+            <img src="./../media/ps4.PNG">
+        </div>
+        <div>
+            <img src="./../media/ps5.PNG">
+        </div>
+        <div>
+            <img src="./../media/ps6.PNG">
+        </div>
+        </div>
+    </section>
+    <div class="spacer wave2"></div>
+    <section id="eng">
+        <h2>Engineering Portfolio</h2>
         <p>Voluptas labore accusamus nisi, officia accusantium repudiandae architecto placeat debitis ipsum, autem molestias cum sunt nulla, dolore consequatur ex exercitationem repellendus doloremque reprehenderit nostrum eius! Corrupti temporibus quis reprehenderit maiores!</p>
     </section>
-    <section>
-        <h1>Header</h1>
-        <p>Minima itaque impedit voluptatibus quisquam optio nisi cumque. Laborum incidunt assumenda quae praesentium nemo dignissimos quis pariatur! Quidem quam atque ut pariatur hic fuga, ipsam, dolor commodi dolores doloribus architecto.</p>
-    </section>
-    <section>
-        <h1>Header</h1>
-        <p>Iure optio ducimus autem qui iusto tempore voluptatibus numquam maxime fugiat consequuntur assumenda eveniet inventore rem, nam officiis mollitia ut eos architecto maiores tenetur placeat, deserunt reiciendis saepe quam. Pariatur.</p>
-    </section>
-    <section>
-        <h1>Header</h1>
-        <p>Odit vero dolore voluptatum impedit dolorum, tenetur temporibus pariatur dignissimos cupiditate praesentium. Iure molestiae neque laborum voluptatum. Aliquam placeat ipsum minus quo odio iure sunt illo? Aliquid harum veniam consequatur.</p>
-    </section>
-    <section>
-        <h1>Header</h1>
-        <p>Vero obcaecati dolores quas tenetur quae atque dicta corporis, modi adipisci molestias exercitationem deserunt fuga, cupiditate rem et. Voluptatum nesciunt obcaecati iure expedita pariatur enim quibusdam at quam ducimus animi?</p>
-    </section>
-    <section>
-        <h1>Header</h1>
-        <p>Rem, veniam repudiandae aliquam unde enim voluptatum veritatis cupiditate vero consectetur reprehenderit? Ab minima, dignissimos iure, ducimus repellat voluptates reprehenderit deserunt tempore eaque tempora corporis labore? Obcaecati tenetur nulla vero?</p>
-    </section>
-    <section>
-        <h1>Header</h1>
-        <p>Consequatur exercitationem ex, dolorem facere molestiae ipsam nesciunt harum sunt optio architecto sequi dicta quidem earum ut sapiente tenetur. Quidem officiis eligendi officia. Nostrum asperiores voluptatibus amet possimus blanditiis quam.</p>
-    </section>
+
+    <script defer>//Shamelessly stolen from https://www.w3schools.com/howto/howto_js_image_comparison.asp
+    function initComparisons() {
+      var x, i;
+      /*find all elements with an "overlay" class:*/
+      x = document.getElementsByClassName("img-comp-overlay");
+      for (i = 0; i < x.length; i++) {
+        /*once for each "overlay" element:
+        pass the "overlay" element as a parameter when executing the compareImages function:*/
+        compareImages(x[i]);
+      }
+      function compareImages(img) {
+        var slider, img, clicked = 0, w, h;
+        /*get the width and height of the img element*/
+        w = img.offsetWidth;
+        h = img.offsetHeight;
+        /*set the width of the img element to 50%:*/
+        img.style.width = (w / 8) + "px";
+        /*create slider:*/
+        slider = document.createElement("DIV");
+        slider.setAttribute("class", "img-comp-slider");
+        /*insert slider*/
+        img.parentElement.insertBefore(slider, img);
+        /*position the slider in the middle:*/
+        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+        slider.style.left = (w / 8) - (slider.offsetWidth / 2) + "px";
+        /*execute a function when the mouse button is pressed:*/
+        slider.addEventListener("mousedown", slideReady);
+        /*and another function when the mouse button is released:*/
+        window.addEventListener("mouseup", slideFinish);
+        /*or touched (for touch screens:*/
+        slider.addEventListener("touchstart", slideReady);
+        /*and released (for touch screens:*/
+        window.addEventListener("touchend", slideFinish);
+        function slideReady(e) {
+          /*prevent any other actions that may occur when moving over the image:*/
+          e.preventDefault();
+          /*the slider is now clicked and ready to move:*/
+          clicked = 1;
+          /*execute a function when the slider is moved:*/
+          window.addEventListener("mousemove", slideMove);
+          window.addEventListener("touchmove", slideMove);
+        }
+        function slideFinish() {
+          /*the slider is no longer clicked:*/
+          clicked = 0;
+        }
+        function slideMove(e) {
+          var pos;
+          /*if the slider is no longer clicked, exit this function:*/
+          if (clicked == 0) return false;
+          /*get the cursor's x position:*/
+          pos = getCursorPos(e)
+          /*prevent the slider from being positioned outside the image:*/
+          if (pos < 0) pos = 0;
+          if (pos > w) pos = w;
+          /*execute a function that will resize the overlay image according to the cursor:*/
+          slide(pos);
+        }
+        function getCursorPos(e) {
+          var a, x = 0;
+          e = (e.changedTouches) ? e.changedTouches[0] : e;
+          /*get the x positions of the image:*/
+          a = img.getBoundingClientRect();
+          /*calculate the cursor's x coordinate, relative to the image:*/
+          x = e.pageX - a.left;
+          /*consider any page scrolling:*/
+          x = x - window.pageXOffset;
+          return x;
+        }
+        function slide(x) {
+          /*resize the image:*/
+          img.style.width = x + "px";
+          /*position the slider:*/
+          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+        }
+      }
+    }
+    initComparisons();
+    </script>
 </body>
 </html>
