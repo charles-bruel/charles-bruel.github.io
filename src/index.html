@@ -79,13 +79,22 @@
             background-color: #DC143C;
         }
 
-        .spacer {
+        .spacer-container {
             aspect-ratio: 9/1;
             width: 100%;
+            padding: 0px;
+            overflow: hidden;
+        }
+
+        .spacer {
+            aspect-ratio: 9/1;
+            width: 105%;
+            left: -2.5%;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
             padding: 0px;
+            position: relative;
         }
 
         .wave1 {
@@ -148,7 +157,7 @@
     <section id="title">
         <h1>Charles Bruel</h1>
     </section>
-    <div class="spacer wave1"></div>
+    <div class="spacer-container"><div class="spacer wave1"></div></div>
     <section id="prog">
         <h2>Programming Portfolio</h2>
         <div class="cont">
@@ -228,7 +237,7 @@
         </div>
         </div>
     </section>
-    <div class="spacer wave2"></div>
+    <div class="spacer-container"><div class="spacer wave2"></div></div>
     <section id="eng">
         <h2>Engineering Portfolio</h2>
         <p>Voluptas labore accusamus nisi, officia accusantium repudiandae architecto placeat debitis ipsum, autem molestias cum sunt nulla, dolore consequatur ex exercitationem repellendus doloremque reprehenderit nostrum eius! Corrupti temporibus quis reprehenderit maiores!</p>
