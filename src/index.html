@@ -47,6 +47,12 @@
             padding: 25px;
         }
 
+        h1 {
+            min-height: 0px;
+            padding: 25px 7.5vw;
+            font-size: 5em;
+        }
+
         h1, h2, h3 {
             text-align: center;
         }
@@ -63,12 +69,21 @@
             font-size: 1.5em;
         }
 
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+
         #title {
             background-color: #001220;
-            min-height: 0px;
-            padding: 25px 7.5vw;
             color: white;
-            font-size: 5em;
+        }
+
+        #title>p {
+            padding-left: 75px;
+            padding-right: 75px;
         }
 
         #prog {
@@ -156,20 +171,27 @@
 <body>
     <section id="title">
         <h1>Charles Bruel</h1>
+        <p>
+            Hello I'm Charlie. I'm a senior in at Minuteman High School where I study Engineering. I've included some of my engineering projects in this portfolio. At 
+            Minuteman, I am captain of our <i>FIRST</i> robotics team, so I've included some of my contributions to the team. In addition to engineering, I also have a deep 
+            interest in computers, and every level of how they work, from hardware to software. Over my near decade of coding, I've created many projects, some of which I show 
+            in this portfolio.
+        </p>
     </section>
     <div class="spacer-container"><div class="spacer wave1"></div></div>
     <section id="prog">
         <h2>Programming Portfolio</h2>
+        <img src="./../media/langs.png" class="center">
         <div class="cont">
         <div class="content">
             <h3>Avalanche Mod</h3>
             <h4>Introduction</h4>
             <p>
-                Snowtopia is a ski resort tycoon game I got almost two years ago. Since then, I have become the most prolific modder of the game. My mod loader, avalanche,
+                Snowtopia is a ski resort tycoon game I bought almost two years ago. Since then, I have become the most prolific modder of the game. My mod loader, avalanche,
                 contains many tweaks to the game in addition to the ability for third parties to add custom content in the form of maps and lifts. Snowtopia is written in C#
                 using the unity engine, allowing relatively simple modding with a decompiler such as DNSpy.<br><br>
-                For full disclosure, I develop avalanche along with two other people, however they are not heavily involved in the code. One maintains the installer and <a href="https://snowtopiamodding.com/">
-                map directory website</a>, and the other helps balance features in the mod.
+                For full disclosure, I develop avalanche along with two other people, however they are not heavily involved in the code. One maintains the installer and 
+                the <a href="https://snowtopiamodding.com/"> map directory website</a>, and the other helps balance features in the mod.
             </p>
             <h4>Trees</h4>
             <p>
