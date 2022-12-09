@@ -139,6 +139,14 @@
             grid-template-areas: 
             "demo content"
         }
+
+        .quote {
+            color: gray;
+            padding-left: 5%;
+            padding-right: 5%;
+            font-style: italic;
+            font-family: 'Times New Roman', Times, serif;
+        }
     </style>
 
     <style>
@@ -306,16 +314,28 @@
             <iframe width=400 height=425 src="./binary-palette/src/binarypalette-simple.html"></iframe>
             <div>
                 <p>
-
-                    Morbi suscipit molestie urna vel pretium. Sed blandit est nec cursus elementum. Phasellus facilisis turpis ut dolor semper hendrerit. Praesent volutpat elit nec tristique euismod. Integer pharetra enim ut volutpat fringilla. Phasellus commodo malesuada maximus. Proin et turpis tortor. Maecenas vulputate ultrices urna, vel euismod est dapibus vel. In finibus viverra aliquet. Etiam mattis turpis ut massa egestas, ac eleifend erat placerat. Pellentesque felis risus, venenatis et rutrum non, pharetra sit amet orci. Phasellus eu risus sit amet ante tincidunt gravida. Curabitur et sem in dui vehicula volutpat ut non ligula. Maecenas rhoncus tincidunt maximus. Vivamus venenatis massa in turpis euismod aliquam. Donec mollis ac ipsum nec interdum.
+                    This is a smaller project, but I chose to include it because I could add an interactive demo. <a
+                    href="https://hansonbruel.com">My mother does art</a>, and one of her categories of work is called binary
+                    palettes. In her words:
+                </p>
+                <div class="quote">This series grew out of thinking about how computers represent colors. As both a graphic designer and artist, 
+                    I spend a lot of time seeing my real-world colors translated by a computer for onscreen viewing — sometimes not 
+                    very accurately. This series of paintings reverses that process.
                     <br><br>
-                    Ut hendrerit eros nec lacus condimentum, non efficitur magna tincidunt. Morbi nec sem convallis, mollis odio et, hendrerit enim. Sed ut odio ex. Suspendisse imperdiet nisi a feugiat fermentum. Morbi non aliquet eros. Pellentesque lobortis vulputate semper. Etiam porttitor ac lacus sit amet elementum. Nunc vitae finibus enim, sed pulvinar lacus. Phasellus sagittis massa est, ut aliquet augue facilisis nec.
+                    4,096 unique colors can be represented using 12 binary digits, from black (000000000000) to white (111111111111). 
+                    Each piece starts with a pattern of zeros and ones that determines the color palette, resulting in interesting 
+                    and unexpected color relationships. While each string of digits defines a single, unchanging color to a computer, 
+                    as an artist I can represent and interpret that color in infinite ways. In essence, my binary palettes are very poor
+                    translations of computer-generated colors.
+                </div>
+                <p>
+                    This program allows takes those inputs and visualizes the colors. She uses it to design her works, but
+                    it's also <a href="https://hansonbruel.com/binary-palettes">on her website</a> to allow people to 
+                    experiment and understand the art better.
                     <br><br>
-                    Nunc ut tristique lorem. Etiam eget dui blandit, mattis nulla sit amet, porta tellus. Vivamus lectus quam, lacinia at tellus eget, interdum ultrices massa. Quisque odio est, bibendum ac lorem id, mattis pellentesque quam. Nulla ex justo, ultrices ut hendrerit sit amet, tristique ac augue. Etiam convallis nulla nec orci malesuada, non faucibus nisl viverra. Phasellus scelerisque dolor a odio consectetur, non pellentesque ligula blandit. Maecenas vitae neque id purus auctor pulvinar vitae sed lorem. In accumsan mauris finibus sem imperdiet consectetur.
-                    <br><br>
-                    Donec porttitor a nisi non dictum. Quisque purus dolor, mollis at erat at, consequat semper nibh. Proin non erat in ligula facilisis tincidunt a sed lacus. Aliquam erat volutpat. Sed rhoncus mi commodo dapibus bibendum. Nullam turpis tortor, sodales a sodales eu, condimentum ac felis. Phasellus eleifend orci sit amet erat gravida, id commodo mi semper. Pellentesque bibendum eu dui eget rhoncus. Nulla in augue enim. Suspendisse risus elit, porttitor sit amet molestie et, accumsan eget nisl. Fusce sit amet libero lectus. Aenean hendrerit lobortis ligula, sit amet tincidunt massa congue blandit. Fusce malesuada viverra augue eget egestas.
-                    <br><br>
-                    Aenean varius nec leo aliquam efficitur. Fusce tincidunt eget lacus a blandit. Curabitur pulvinar dolor fringilla elementum dictum. Mauris non tincidunt augue, suscipit vestibulum sem. Curabitur blandit libero quis malesuada imperdiet. Nullam porta ex vel sagittis aliquam. Donec ut mi ac elit dapibus tristique. Duis eget ornare tortor. Donec non magna ex. Nunc elementum purus enim, id congue turpis ornare eu. Sed feugiat sollicitudin eros, at finibus lorem ultricies nec. Ut facilisis, velit eu mollis molestie, dui ex pretium eros, non egestas elit erat ut massa. Cras ullamcorper malesuada volutpat. Sed ipsum erat, fermentum vitae sapien lacinia, varius pharetra lectus. </p>
+                    The buttons on the bottom load in the layout from some of her previous works. You can also click on
+                    any cell to toggle it and create your own patterns.
+                </p>
             </div>
         </div>
     </section>
