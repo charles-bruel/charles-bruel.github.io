@@ -310,10 +310,10 @@
         <h3>Lexica</h3>
         <h4>Background and Goals</h4>
         <p>
-            Constructed languages (conlangs for short) are made up langauges, typically for a work of literature, such as Sindarin, Quenya, other languages by Tolkein, Klingon,
+            Constructed languages (conlangs for short) are made up languages, typically for a work of literature, such as Sindarin, Quenya, other languages by Tolkein, Klingon,
             Dothraki, High Valyrian, etc. One method of creating a naturalistic constructed language is the diachronic approach. The irregularity and quirks that makes a langauge
-            seem authentic are driven by the evolution of the language through time, so the diacrhonic appraoch attempts to mimic that. The diacrhonic appraoch involves creating at
-            least two versions of the langauge, one earlier version (typically called the proto-lang) and later version(s), based on the earlier version(s). Allowing grammar rules
+            seem authentic are driven by the evolution of the language through time, so the diachronic approach attempts to mimic that. The diachronic  appraoch involves creating at
+            least two versions of the language, one earlier version (typically called the proto-lang) and later version(s), based on the earlier version(s). Allowing grammar rules
             to vary with time creates a lot of good variation, but the majority of the changes are in the sound of the language.
         </p>
         <p>
@@ -330,7 +330,33 @@
             automatically applied to every word. In addition, since I'm making the tool from scratch, I can add an array of other useful features, such as automatically declining
             and conjugating words.
         </p>
-        <h4>Status</h4>
+        <h4>Architecture and Status</h4>
+        <p>
+            The sound change computation is done in a Rust backend, and the UI is done in a web page frontend, both of which communicate with a websocket. I chose to seperate make a 
+            seperate backend mostly for performance reasons, I wanted to be able to process potentially thousands of words very quickly, so avoiding javacsript seemed like a good 
+            idea. I chose Rust for no particular reason; I just wanted to learn the language. Another advantage of a seperate backend is it improves UX around saving. I have not 
+            seen a single web program have nice local saving, they all just dump files in downloads whenever you save, so having a backend allows me to have an actually good save 
+            system which I really value.
+        </p>
+        <p>
+            The core sound changer backend is mostly completely. It takes the sound change program written by the user and send by the frontend and turns it into a list of
+            instructions. Each letter is represented as a set of user defined features. The features are set up in a tree like structure; vowels and consonants have different
+            characteristics that define them. For example, the most important features of a consonants is it's manner of articulation, place of articulation, and whether it's voiced,
+            whereas for a vowel it's frontedness, closeness, and roundedness. Those terms are related to how the <a href="https://www.ipachart.com/">International Phoenetic Alphabet 
+            (IPA)</a> lays out sounds. Each feature is assigned to a place in a bitmap, and each letter is just a 64-bit bitmap. This means almost every operation can be reduced to bitwise operations and
+            comparisions, making the entire process very fast.
+        </p>
+        <p>
+            The frontend is written in plain Javascript, HTML, and CSS. I didn't know any frameworks or anything else when I started the project, and I decided it wasn't worth 
+            learning at the time, so I went with what I was familiar with. The UI is formatted primarily as a spreadsheet, because that is my preferred way of recording details 
+            about my conlangs. I implemented the spreadsheet completely from scratch. I took great care to mimic excel when writing the interaction scheme. It has almost all the
+            same behaviours as excel, selecting is the same, cells merge the same way, etc. The only features it's currently lacking is selected entire rows or columns, and undo 
+            support.
+        </p>
+        <p>
+            The frontend contains a dedicated tool for writing sound change code. It is fully syntax highlighted, reports compilation errors to you when typing, has rudimentry auto-
+            indent support, and contains an area for quick testing of code.
+        </p>
         <h3>Rendering Projects</h3>
         <h3>Binary Palettes</h3>
         <div class="bp-content">
