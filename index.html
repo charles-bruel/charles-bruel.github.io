@@ -351,11 +351,12 @@
             learning at the time, so I went with what I was familiar with. The UI is formatted primarily as a spreadsheet, because that is my preferred way of recording details 
             about my conlangs. I implemented the spreadsheet completely from scratch. I took great care to mimic excel when writing the interaction scheme. It has almost all the
             same behaviours as excel, selecting is the same, cells merge the same way, etc. The only features it's currently lacking is selected entire rows or columns, and undo 
-            support.
+            support. There is a fully featured formula system that uses an abstract syntax tree to parse formulas. It supports delayed evaluation (for example the result from a
+            sound change won't be immediately avaliable) and caching.
         </p>
         <p>
             The frontend contains a dedicated tool for writing sound change code. It is fully syntax highlighted, reports compilation errors to you when typing, has rudimentry auto-
-            indent support, and contains an area for quick testing of code.
+            formatting support, and contains an area for quick testing of code.
         </p>
         <h3>Rendering Projects</h3>
         <h3>Binary Palettes</h3>
