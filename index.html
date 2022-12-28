@@ -140,6 +140,27 @@
             "demo content"
         }
 
+        .lexica-content {
+            display: grid;
+            gap: 10px;
+            align-items: center;
+            grid-template-areas: 
+            "content picture1"
+            /* "content picture2"
+            "content picture3"
+            "content picture4" */
+            "example example"
+        }
+
+        .lexica-example {
+            display: grid;
+            align-items: center;
+            grid-template-areas: 
+            "header header"
+            "code output";
+            grid-area: example
+        }
+
         .quote {
             color: gray;
             padding-left: 5%;
@@ -308,6 +329,8 @@
         </div>
         </div>
         <h3>Lexica</h3>
+        <div class="lexica-content">
+        <div class="lexica-text-content">
         <h4>Background and Goals</h4>
         <p>
             Constructed languages (conlangs for short) are made up languages, typically for a work of literature, such as Sindarin, Quenya, other languages by Tolkein, Klingon,
@@ -361,6 +384,134 @@
         <p>
             <a href="https://github.com/charles-bruel/lexica">Source code for the project can be found here.</a>
         </p>
+        </div>
+        <div>TODO: Replace me with picture of project in progress</div>
+        <div class="lexica-example">
+            <div style="grid-area:header">
+                <h4>Here is a full example of the sound changer</h4>
+                <p>
+                    This demostrates a conversion from Clasical Latin in late Vulgar Latin or Proto-Romance, excluding some of the vowel changes. This would be the first step in
+                    a project that involves making a custom romance language.
+                </p>
+            </div>
+            <div>
+                <p>This is a code snippet containing the rules. Full setup is not included. The entire text of this program can be found in the documentation.</p>
+                <pre>rules
+    rule h-loss
+        [vowel]$1(backness closeness round) h []$1 => [+long] h *
+        h => *
+    end
+
+    rule final-m-loss
+        m => n / $ [consonant]* [vowel] _ $ #First handle the except where it surives as n monosyllabically
+        m => * / _ $
+    end
+
+    rule n-fricative-loss
+        [vowel] n => [+long] * / _ [fricative]
+    end
+
+    rule duplicated-i-removal
+        i i => [+long] *
+    end
+
+    #Ignoring rural dipthong change
+    #Ignoring changing of vowel qualities
+
+    rule w-loss
+        w => β
+        b => β / [vowel] _ [vowel]
+        b => β / _ r
+        β => * / [vowel +round] _ [vowel]
+        β => * / [vowel] _ [vowel +round]
+    end
+
+    rule hiatus-semivowels
+        [front -stress] => j / _ [vowel]
+        [back -stress] => w / _ [vowel]
+        [front +stress] [vowel] => j [+stress] / _ [consonant]* [vowel] [consonant]* $
+        [back +stress] [vowel] => w [+stress]  / _ [consonant]* [vowel] [consonant]* $
+        [consonant]$1 []$1 w => [] [] *
+        w => * / _ [back -stress]
+        [+labialized] => [-labialized] / _ [back]
+        j e => * [+long]
+        w o => * [+long]
+        [+labialized] => [-labialized] / _ j
+        [consonant] j => [+palatalized] * // $ _
+    end
+
+    rule j-fortion
+        j => ɟ / [vowel] _ [vowel]
+        j => ɟ / $ _
+    end
+
+    #Ignoring changing of vowel qualities
+
+    rule g-spirantize
+        g => ɣ / _ n
+    end
+
+    rule g-vocalize
+        g => u̯ / _ m
+    end
+
+    rule ks-simplification
+        k s => * s / _ [consonant]
+        k s => * s / [consonant] _
+        k s => * s / _ $
+    end
+
+    rule sC-word-initial-breakup
+        * => i / $ _ s [consonant]
+    end
+
+    rule e-o-raise
+        eː => [close] / _ s tʲ
+        oː => [close] / _ s tʲ
+        eː' => [close] / _ s tʲ #It matches strictly now
+        oː' => [close] / _ s tʲ
+    end
+
+    rule epenthetic-final-e
+        * => e / $ [consonant]* [vowel] [consonant]+ _ $
+    end
+
+    #Vowel length distinction collapse is not modeled
+end</pre>
+            </div>
+            <div>
+                <p>Here is the output of the code.</p>
+                <p>
+                    ko'horte => ko'ːrte
+                    nu'nkʷam => nu'nkʷa
+                    kʷe'm => kʷe'ne
+                    inte'gram => inte'gra
+                    spo'nsa => ispo'ːsa
+                    ko'nsiliiː => ko'ːsiliː
+                    wi'ːwere => βi'ːβere
+                    tra'bem => tra'βe
+                    ri'ːwus => ri'ːus
+                    fi'ːlius => fi'ːlʲus
+                    sa'puiː => sa'pwiː
+                    tenu'eram => tenwe'ra
+                    fiːli'olus => fiːlʲo'lus
+                    battu'ere => batte're
+                    ka'rduus => ka'rdus
+                    kʷo'ːmodo => ko'ːmodo
+                    pari'eteːs => pare'ːteːs
+                    la'kʷeum => la'kʲu
+                    kaː'seum => ka'ːsʲu
+                    fragme'nta => frau̯me'nta
+                    ka'lks => ka'lse
+                    se'kstus => se'stus
+                    sko'la => isko'la
+                    be'ːstia => bi'ːstʲa
+                    o'ːstium => u'ːstʲu
+                    rem => rene
+                </p>
+            </div>
+        </div>
+        </div>
         <h3>Rendering Projects</h3>
         <h3>Binary Palettes</h3>
         <div class="bp-content">
