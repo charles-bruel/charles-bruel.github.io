@@ -154,9 +154,10 @@
 
         .lexica-example {
             display: grid;
-            align-items: center;
+            align-items: start;
             grid-template-areas: 
             "header header"
+            "codeh outputh"
             "code output";
             grid-area: example
         }
@@ -394,9 +395,8 @@
                     a project that involves making a custom romance language.
                 </p>
             </div>
-            <div>
-                <p>This is a code snippet containing the rules. Full setup is not included. The entire text of this program can be found in the documentation.</p>
-                <pre>rules
+            <p style="grid-area:codeh">This is a code snippet containing the rules. Full setup is not included. The entire text of this program can be found in the documentation.</p>
+            <pre style="grid-area:code">rules
     rule h-loss
         [vowel]$1(backness closeness round) h []$1 => [+long] h *
         h => *
@@ -478,38 +478,35 @@
 
     #Vowel length distinction collapse is not modeled
 end</pre>
-            </div>
-            <div>
-                <p>Here is the output of the code.</p>
-                <p>
-                    ko'horte => ko'ːrte
-                    nu'nkʷam => nu'nkʷa
-                    kʷe'm => kʷe'ne
-                    inte'gram => inte'gra
-                    spo'nsa => ispo'ːsa
-                    ko'nsiliiː => ko'ːsiliː
-                    wi'ːwere => βi'ːβere
-                    tra'bem => tra'βe
-                    ri'ːwus => ri'ːus
-                    fi'ːlius => fi'ːlʲus
-                    sa'puiː => sa'pwiː
-                    tenu'eram => tenwe'ra
-                    fiːli'olus => fiːlʲo'lus
-                    battu'ere => batte're
-                    ka'rduus => ka'rdus
-                    kʷo'ːmodo => ko'ːmodo
-                    pari'eteːs => pare'ːteːs
-                    la'kʷeum => la'kʲu
-                    kaː'seum => ka'ːsʲu
-                    fragme'nta => frau̯me'nta
-                    ka'lks => ka'lse
-                    se'kstus => se'stus
-                    sko'la => isko'la
-                    be'ːstia => bi'ːstʲa
-                    o'ːstium => u'ːstʲu
-                    rem => rene
-                </p>
-            </div>
+            <p style="grid-area:outputh">Here is the output of the code.</p>
+            <p style="grid-area:output">
+                ko'horte => ko'ːrte <br>
+                nu'nkʷam => nu'nkʷa <br>
+                kʷe'm => kʷe'ne <br>
+                inte'gram => inte'gra <br>
+                spo'nsa => ispo'ːsa <br>
+                ko'nsiliiː => ko'ːsiliː <br>
+                wi'ːwere => βi'ːβere <br>
+                tra'bem => tra'βe <br>
+                ri'ːwus => ri'ːus <br>
+                fi'ːlius => fi'ːlʲus <br>
+                sa'puiː => sa'pwiː <br>
+                tenu'eram => tenwe'ra <br>
+                fiːli'olus => fiːlʲo'lus <br>
+                battu'ere => batte're <br>
+                ka'rduus => ka'rdus <br>
+                kʷo'ːmodo => ko'ːmodo <br>
+                pari'eteːs => pare'ːteːs <br>
+                la'kʷeum => la'kʲu <br>
+                kaː'seum => ka'ːsʲu <br>
+                fragme'nta => frau̯me'nta <br>
+                ka'lks => ka'lse <br>
+                se'kstus => se'stus <br>
+                sko'la => isko'la <br>
+                be'ːstia => bi'ːstʲa <br>
+                o'ːstium => u'ːstʲu <br>
+                rem => rene <br>
+            </p>
         </div>
         </div>
         <h3>Rendering Projects</h3>
