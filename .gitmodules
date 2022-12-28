@@ -1,3 +1,6 @@
 [submodule "binary-palette"]
 	path = binary-palette
 	url = git@github.com:charles-bruel/binary-palette.git
+[submodule "lexica"]
+	path = lexica
+	url = git@github.com:charles-bruel/lexica.git
