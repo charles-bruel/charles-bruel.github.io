@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Nunito&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="lexica/frontend/src/synhi.css">
+    <script src="lexica/frontend/src/formatting.js"></script>
     
     <style>
         body {
@@ -168,6 +169,25 @@
             padding-right: 5%;
             font-style: italic;
             font-family: 'Times New Roman', Times, serif;
+        }
+
+        div.code {
+            white-space: pre;
+            margin-left: 0.8in;
+            width: fit-content;
+            padding: 6px;
+        }
+
+        .code {
+            font-family: 'Fira Code', monospace;
+            background-color: black;
+            color: white;
+            font-size: 12px;
+        }
+
+        .codish {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
         }
     </style>
 
@@ -400,7 +420,7 @@
                 </p>
             </div>
             <p style="grid-area:codeh">This is a code snippet containing the rules. Full setup is not included. The entire text of this program can be found in the documentation.</p>
-            <pre style="grid-area:code">rules
+            <pre style="grid-area:code" class="h m n i w b β r j e o ɟ g ɣ u s tʲ k u̯ eː oː eː' oː'">rules
     rule h-loss
         [vowel]$1(backness closeness round) h []$1 => [+long] h *
         h => *
@@ -483,34 +503,34 @@
     #Vowel length distinction collapse is not modeled
 end</pre>
             <p style="grid-area:outputh">Here is the output of the code.</p>
-            <p style="grid-area:output">
-                ko'horte => ko'ːrte <br>
-                nu'nkʷam => nu'nkʷa <br>
-                kʷe'm => kʷe'ne <br>
-                inte'gram => inte'gra <br>
-                spo'nsa => ispo'ːsa <br>
-                ko'nsiliiː => ko'ːsiliː <br>
-                wi'ːwere => βi'ːβere <br>
-                tra'bem => tra'βe <br>
-                ri'ːwus => ri'ːus <br>
-                fi'ːlius => fi'ːlʲus <br>
-                sa'puiː => sa'pwiː <br>
-                tenu'eram => tenwe'ra <br>
-                fiːli'olus => fiːlʲo'lus <br>
-                battu'ere => batte're <br>
-                ka'rduus => ka'rdus <br>
-                kʷo'ːmodo => ko'ːmodo <br>
-                pari'eteːs => pare'ːteːs <br>
-                la'kʷeum => la'kʲu <br>
-                kaː'seum => ka'ːsʲu <br>
-                fragme'nta => frau̯me'nta <br>
-                ka'lks => ka'lse <br>
-                se'kstus => se'stus <br>
-                sko'la => isko'la <br>
-                be'ːstia => bi'ːstʲa <br>
-                o'ːstium => u'ːstʲu <br>
-                rem => rene <br>
-            </p>
+            <ul style="grid-area:output">
+                <li class="codish">ko'horte => ko'ːrte </li>
+                <li class="codish">nu'nkʷam => nu'nkʷa </li>
+                <li class="codish">kʷe'm => kʷe'ne </li>
+                <li class="codish">inte'gram => inte'gra </li>
+                <li class="codish">spo'nsa => ispo'ːsa </li>
+                <li class="codish">ko'nsiliiː => ko'ːsiliː </li>
+                <li class="codish">wi'ːwere => βi'ːβere </li>
+                <li class="codish">tra'bem => tra'βe </li>
+                <li class="codish">ri'ːwus => ri'ːus </li>
+                <li class="codish">fi'ːlius => fi'ːlʲus </li>
+                <li class="codish">sa'puiː => sa'pwiː </li>
+                <li class="codish">tenu'eram => tenwe'ra </li>
+                <li class="codish">fiːli'olus => fiːlʲo'lus </li>
+                <li class="codish">battu'ere => batte're </li>
+                <li class="codish">ka'rduus => ka'rdus </li>
+                <li class="codish">kʷo'ːmodo => ko'ːmodo </li>
+                <li class="codish">pari'eteːs => pare'ːteːs </li>
+                <li class="codish">la'kʷeum => la'kʲu </li>
+                <li class="codish">kaː'seum => ka'ːsʲu </li>
+                <li class="codish">fragme'nta => frau̯me'nta </li>
+                <li class="codish">ka'lks => ka'lse </li>
+                <li class="codish">se'kstus => se'stus </li>
+                <li class="codish">sko'la => isko'la </li>
+                <li class="codish">be'ːstia => bi'ːstʲa </li>
+                <li class="codish">o'ːstium => u'ːstʲu </li>
+                <li class="codish">rem => rene </li>
+                </ul>
         </div>
         </div>
         <h3>Rendering Projects</h3>
@@ -674,6 +694,10 @@ end</pre>
       }
     }
     initComparisons();
+    </script>
+
+    <script defer>
+        format_code_blocks();
     </script>
 </body>
 </html>
