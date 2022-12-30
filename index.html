@@ -163,6 +163,13 @@
             grid-area: example
         }
 
+        .swerve-pictures {
+            display: grid;
+            gap: 10px;
+            align-items: center;
+            grid-template-columns: 50% 50%;
+       }
+
         .quote {
             color: gray;
             padding-left: 5%;
@@ -566,7 +573,7 @@ end</pre>
     <div class="spacer-container"><div class="spacer wave2"></div></div>
     <section id="eng">
         <h2>Engineering Portfolio</h2>
-        <img src="./media/ASSOCIATE - MECHANICAL DESIGN.png" class="center">
+        <img src="./media/ASSOCIATE - MECHANICAL DESIGN.png" class="center" style="width:10%">
         <h3>Overview</h3>
         <p>
             I studied Engineering Technology at Minuteman High School since my freshman year. My engineering experience includes:
@@ -607,12 +614,28 @@ end</pre>
         </p>
         <p>
             Due to the budget constraints, I made one of four modules that would make up a finished drive. I began by making models in CAD. I
-            made 12 models of increasing viability and sophistication before arriving on my final model which I would make. I had several 
-            constraints and criteria for the model. First, it had to be usable in <i>FIRST</i> robotics, and connect to the robot using the
+            made 12 models of increasing viability and sophistication before arriving on my final model which I would make. I machined or printed
+            many of the parts by myself.
+        </p>
+        <p>
+            I had several constraints and criteria for the model. First, it had to be usable in <i>FIRST</i> robotics, and connect to the robot using the
             somewhat standard 2"x1" tube. Second, it had to have an absolute encoder to measure the rotation of the module. Homing it would be
             too complicated before every match, especially for something as critical as the drive system. Finally, I had to minimize footprint
             and mass.
         </p>
+        <div class="swerve-pictures">
+            <div>
+                <img src="media/ps11.PNG">
+                <p>V1 was heavy, too large, too tall, lacked features, and didn't take any kind of loads into account.</p>
+            </div>
+            <div>
+                <img src="media/ps12.PNG">
+                <p>V12 (the final one) is much more compact, and, in Fusion 360 simulations, rated to 2000N.</p>
+            </div>
+            <div>
+                
+            </div>
+        </div>
     </section>
 
     <script defer>//Shamelessly stolen from https://www.w3schools.com/howto/howto_js_image_comparison.asp
