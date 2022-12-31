@@ -19,6 +19,7 @@
 
         p, li {
             font-family: 'Nunito', sans-serif;
+            font-size: 18px;
         }
 
         section {
@@ -92,11 +93,10 @@
         }
 
         #eng {
-            background-color: #cf5050;
+            background-color: #e5a790;
         }
 
         .spacer-container {
-            aspect-ratio: 9/1;
             width: 100%;
             padding: 0px;
             overflow: hidden;
@@ -106,10 +106,10 @@
             aspect-ratio: 9/1;
             width: 105%;
             left: -2.5%;
+            top: -2.5%;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            padding: 0px;
             position: relative;
         }
 
@@ -171,7 +171,7 @@
        }
 
         .quote {
-            color: gray;
+            color: rgb(0, 0, 0);
             padding-left: 5%;
             padding-right: 5%;
             font-style: italic;
@@ -189,12 +189,12 @@
             font-family: 'Fira Code', monospace;
             background-color: black;
             color: white;
-            font-size: 12px;
+            font-size: 16px;
         }
 
         .codish {
             font-family: 'Fira Code', monospace;
-            font-size: 12px;
+            font-size: 16px;
         }
     </style>
 
@@ -250,18 +250,18 @@
             in this portfolio.
         </p>
     </section>
-    <div class="spacer-container"><div class="spacer wave1"></div></div>
+    <div class="spacer-container" style="aspect-ratio:9/1"><div class="spacer wave1"></div></div>
     <section id="prog">
         <h2>Programming Portfolio</h2>
         <img src=".//media/langs.png" class="center">
         <h3>Overview</h3>
-            <p>
+            <div><p>
                 I program for a variety of reasons in a variety of languages. I am proficient in C, C++, C#, Java, Javscript, HTML, CSS, Rust, Python, GLSL, and x86 Assembly. My projects
                 include 3D rendering with OpenGL and Vulkan, programming languages, mods for games, helpful scripts, robot control systems, and more. I program mostly to learn, I don't
                 anticipate that knowing assembly will be very useful, but I wanted to understand how it worked. I've also learned a lot about how how computer hardware works, and how to
                 take advantage of the cache, the branch predictor, and other optimizations, though I haven't had a good opportunity to put that into practice. <br><br>
                 <a href="https://github.com/charles-bruel">Here is a link to my github</a>, I post most of my code there.
-            </p>
+            </p></div>
         <div class="avalanche-content">
         <div class="content">
             <h3>Avalanche Mod</h3>
@@ -269,8 +269,8 @@
             <p>
                 Snowtopia is a ski resort tycoon game I bought almost two years ago. Since then, I have become the most prolific modder of the game. My mod loader, avalanche,
                 contains many tweaks to the game in addition to the ability for third parties to add custom content in the form of maps and lifts. Snowtopia is written in C#
-                using the unity engine, allowing relatively simple modding with a decompiler such as DNSpy.<br><br>
-                For full disclosure, I develop avalanche along with two other people, however they are not heavily involved in the code. One maintains the installer and 
+                using the Unity engine, allowing relatively simple modding with a decompiler such as DNSpy.<br><br>
+                For full disclosure, I develop Avalanche along with two other people, however they are not heavily involved in the code. One maintains the installer and 
                 the <a href="https://snowtopiamodding.com/"> map directory website</a>, and the other helps balance features in the mod.
             </p>
             <h4>Trees</h4>
@@ -286,7 +286,7 @@
             <h4>Lifts</h4>
             <p>
                 Custom lifts are the most complex feature I've added. The default lifts are passable, but I have managed to improve on their asethetics significantly. Custom
-                lifts are loaded with Unity's asset bundle system, and can contain script data to define behaviour on creation. The default static model towers have been repalced
+                lifts are loaded with Unity's asset bundle system, and can contain script data to define behavio1r on creation. The default static model towers have been repalced
                 with high detail models that contain accurate sheaves. The towers adapt to the terrain with a 3d tower placement algorithm, allowing variable heights on towers.
                 When the towers interact with ski runs, I've added padding to the towers. I've added sag to the cables that the cars run, realisticly modelled with caternery 
                 curves. The cars enter the stations instead of immediately turning around, and for the detachable lifts, the vehicles slow down in the station like they would
@@ -369,7 +369,7 @@
         </p>
         <p>
             The pronunciation of languages change with time, and each language changes differently, but the rules are very consistent within languages. Almost every word in Italian
-            went through the same systematic set of changes from it's original Latin source. French, Spanish, Romanian, and all the other romance languages each went through their
+            went through the same systematic set of changes from its original Latin source. French, Spanish, Romanian, and all the other romance languages each went through their
             own set of changes to create the different characters of each language. A crucial part of the diachronic approach is defining the set of sound changes between versions of
             the language, then applying those changes to each word in turn.
         </p>
@@ -383,25 +383,25 @@
         </p>
         <h4>Architecture and Status</h4>
         <p>
-            The sound change computation is done in a Rust backend, and the UI is done in a web page frontend, both of which communicate with a websocket. I chose to seperate make a 
-            seperate backend mostly for performance reasons, I wanted to be able to process potentially thousands of words very quickly, so avoiding javacsript seemed like a good 
-            idea. I chose Rust for no particular reason; I just wanted to learn the language. Another advantage of a seperate backend is it improves UX around saving. I have not 
+            The sound change computation is done in a Rust backend, and the UI is done in a web page frontend, both of which communicate with a websocket. I chose to make a 
+            separate backend mostly for performance reasons, I wanted to be able to process potentially thousands of words very quickly, so avoiding Javascript seemed like a good 
+            idea. I chose Rust for no particular reason; I just wanted to learn the language. Another advantage of a separate backend is it improves UX around saving. I have not 
             seen a single web program have nice local saving, they all just dump files in downloads whenever you save, so having a backend allows me to have an actually good save 
             system which I really value.
         </p>
         <p>
-            The core sound changer backend is mostly completely. It takes the sound change program written by the user and send by the frontend and turns it into a list of
-            instructions. Each letter is represented as a set of user defined features. The features are set up in a tree like structure; vowels and consonants have different
-            characteristics that define them. For example, the most important features of a consonants is it's manner of articulation, place of articulation, and whether it's voiced,
-            whereas for a vowel it's frontedness, closeness, and roundedness. Those terms are related to how the <a href="https://www.ipachart.com/">International Phoenetic Alphabet 
+            The core sound changer backend is mostly completely. It takes the sound change program written by the user and sent by the frontend and turns it into a list of
+            instructions. Each letter is represented as a set of user-defined features. The features are set up in a tree-like structure; vowels and consonants have different
+            characteristics that define them. For example, the most important features of a consonants is its manner of articulation, place of articulation, and whether it's voiced,
+            whereas for a vowel its frontedness, closeness, and roundedness. Those terms are related to how the <a href="https://www.ipachart.com/">International Phoenetic Alphabet 
             (IPA)</a> lays out sounds. Each feature is assigned to a place in a bitmap, and each letter is just a 64-bit bitmap. This means almost every operation can be reduced to bitwise operations and
             comparisions, making the entire process very fast.
         </p>
         <p>
             The frontend is written in plain Javascript, HTML, and CSS. I didn't know any frameworks or anything else when I started the project, and I decided it wasn't worth 
             learning at the time, so I went with what I was familiar with. The UI is formatted primarily as a spreadsheet, because that is my preferred way of recording details 
-            about my conlangs. I implemented the spreadsheet completely from scratch. I took great care to mimic excel when writing the interaction scheme. It has almost all the
-            same behaviours as excel, selecting is the same, cells merge the same way, etc. The only features it's currently lacking is selected entire rows or columns, and undo 
+            about my conlangs. I implemented the spreadsheet completely from scratch. I took great care to mimic Excel when writing the interaction scheme. It has almost all the
+            same behaviors as Excel, selecting is the same, cells merge the same way, etc. The only features it's currently lacking is selected entire rows or columns, and undo 
             support. There is a fully featured formula system that uses an abstract syntax tree to parse formulas. It supports delayed evaluation (for example the result from a
             sound change won't be immediately avaliable) and caching.
         </p>
@@ -419,7 +419,7 @@
             <p>The program menu, where sound change code is written</p>
         </div>
         <div class="lexica-example">
-            <div style="grid-area:header">
+            <div style="grid-area:header;padding:0px">
                 <h4>Here is a full example of the sound changer</h4>
                 <p>
                     This demostrates a conversion from Clasical Latin in late Vulgar Latin or Proto-Romance, excluding some of the vowel changes. This would be the first step in
@@ -546,7 +546,7 @@ end</pre>
             <div>
                 <p>
                     This is a smaller project, but I chose to include it because I could add an interactive demo. <a
-                    href="https://hansonbruel.com">My mother does art</a>, and one of her categories of work is called binary
+                    href="https://hansonbruel.com">My mother is an artist</a>, and one of her series of work is called binary
                     palettes. In her words:
                 </p>
                 <div class="quote"><p>This series grew out of thinking about how computers represent colors. As both a graphic designer and artist, 
@@ -570,7 +570,7 @@ end</pre>
             </div>
         </div>
     </section>
-    <div class="spacer-container"><div class="spacer wave2"></div></div>
+    <div class="spacer-container" style="aspect-ratio:12/1"><div class="spacer wave2"></div></div>
     <section id="eng">
         <h2>Engineering Portfolio</h2>
         <img src="./media/ASSOCIATE - MECHANICAL DESIGN.png" class="center" style="width:10%">
