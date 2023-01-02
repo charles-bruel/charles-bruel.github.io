@@ -267,10 +267,10 @@
             <h3>Avalanche Mod</h3>
             <h4>Introduction</h4>
             <p>
-                Snowtopia is a ski resort tycoon game I bought almost two years ago. Since then, I have become the most prolific modder of the game. My mod loader, avalanche,
+                Snowtopia is a ski resort tycoon game I bought almost two years ago. Since then, I have become the most prolific modder of the game. My mod loader, Avalanche,
                 contains many tweaks to the game in addition to the ability for third parties to add custom content in the form of maps and lifts. Snowtopia is written in C#
                 using the Unity engine, allowing relatively simple modding with a decompiler such as DNSpy.<br><br>
-                For full disclosure, I develop Avalanche along with two other people, however they are not heavily involved in the code. One maintains the installer and 
+                For full disclosure, I am developing Avalanche along with two other people, however they are not heavily involved in the code. One maintains the installer and 
                 the <a href="https://snowtopiamodding.com/"> map directory website</a>, and the other helps balance features in the mod.
             </p>
             <h4>Trees</h4>
@@ -288,7 +288,7 @@
                 Custom lifts are the most complex feature I've added. The default lifts are passable, but I have managed to improve on their asethetics significantly. Custom
                 lifts are loaded with Unity's asset bundle system, and can contain script data to define behavior on creation. The default static model towers have been repalced
                 with high detail models that contain accurate sheaves. The towers adapt to the terrain with a 3d tower placement algorithm, allowing variable heights on towers.
-                When the towers interact with ski runs, I've added padding to the towers. I've added sag to the cables that the cars run, realisticly modelled with caternery 
+                When the towers interact with ski runs, I've added padding to the towers. I've added sag to the cables, realisticly modelled with caternery 
                 curves. The cars enter the stations instead of immediately turning around, and for the detachable lifts, the vehicles slow down in the station like they would
                 in real life.
             </p>
@@ -362,13 +362,13 @@
         <h4>Background and Goals</h4>
         <p>
             Constructed languages (conlangs for short) are made up languages, typically for a work of literature, such as Sindarin, Quenya, other languages by Tolkein, Klingon,
-            Dothraki, High Valyrian, etc. One method of creating a naturalistic constructed language is the diachronic approach. The irregularity and quirks that makes a langauge
+            Dothraki, High Valyrian, etc. One method of creating a naturalistic constructed language is the diachronic approach. The irregularities and quirks that make a langauge
             seem authentic are driven by the evolution of the language through time, so the diachronic approach attempts to mimic that. The diachronic  appraoch involves creating at
             least two versions of the language, one earlier version (typically called the proto-lang) and later version(s), based on the earlier version(s). Allowing grammar rules
             to vary with time creates a lot of good variation, but the majority of the changes are in the sound of the language.
         </p>
         <p>
-            The pronunciation of languages change with time, and each language changes differently, but the rules are very consistent within languages. Almost every word in Italian
+            The pronunciation of languages changes with time, and each language changes differently, but the rules are very consistent within languages. Almost every word in Italian
             went through the same systematic set of changes from its original Latin source. French, Spanish, Romanian, and all the other romance languages each went through their
             own set of changes to create the different characters of each language. A crucial part of the diachronic approach is defining the set of sound changes between versions of
             the language, then applying those changes to each word in turn.
@@ -386,13 +386,13 @@
             The sound change computation is done in a Rust backend, and the UI is done in a web page frontend, both of which communicate with a websocket. I chose to make a 
             separate backend mostly for performance reasons, I wanted to be able to process potentially thousands of words very quickly, so avoiding Javascript seemed like a good 
             idea. I chose Rust for no particular reason; I just wanted to learn the language. Another advantage of a separate backend is it improves UX around saving. I have not 
-            seen a single web program have nice local saving, they all just dump files in downloads whenever you save, so having a backend allows me to have an actually good save 
-            system which I really value.
+            seen a single web program have nice local saving, they all just dump files in downloads whenever you save, so having a backend allows me to have a good save 
+            system, which I really value for usability.
         </p>
         <p>
-            The core sound changer backend is mostly completely. It takes the sound change program written by the user and sent by the frontend and turns it into a list of
+            The core sound changer backend is mostly complete. It takes the sound change program written by the user and sent by the frontend and turns it into a list of
             instructions. Each letter is represented as a set of user-defined features. The features are set up in a tree-like structure; vowels and consonants have different
-            characteristics that define them. For example, the most important features of a consonants is its manner of articulation, place of articulation, and whether it's voiced,
+            characteristics that define them. For example, the most important features of consonants are its manner of articulation, place of articulation, and whether it's voiced,
             whereas for a vowel its frontedness, closeness, and roundedness. Those terms are related to how the <a href="https://www.ipachart.com/">International Phoenetic Alphabet 
             (IPA)</a> lays out sounds. Each feature is assigned to a place in a bitmap, and each letter is just a 64-bit bitmap. This means almost every operation can be reduced to bitwise operations and
             comparisions, making the entire process very fast.
@@ -560,7 +560,7 @@ end</pre>
                     translations of computer-generated colors.</p>
                 </div>
                 <p>
-                    This program allows takes those inputs and visualizes the colors. She uses it to design her works, but
+                    This program takes those inputs and visualizes the colors. She uses it to design her works, but
                     it's also <a href="https://hansonbruel.com/binary-palettes">on her website</a> to allow people to 
                     experiment and understand the art better.
                     <br><br>
