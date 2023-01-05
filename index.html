@@ -156,6 +156,8 @@
         .lexica-example {
             display: grid;
             align-items: start;
+            padding-left: 0px;
+            padding-right: 0px;
             grid-template-areas: 
             "header header"
             "codeh outputh"
@@ -182,14 +184,14 @@
             white-space: pre;
             margin-left: 0.8in;
             width: fit-content;
-            padding: 6px;
+            padding: 4px;
         }
 
         .code {
             font-family: 'Fira Code', monospace;
             background-color: black;
             color: white;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .codish {
@@ -438,7 +440,7 @@
     end
 
     rule final-m-loss
-        m => n / $ [consonant]* [vowel] _ $ #First handle the except where it surives as n monosyllabically
+        m => n / $ [consonant]* [vowel] _ $ #First handle the exception
         m => * / _ $
     end
 
